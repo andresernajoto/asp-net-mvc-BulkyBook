@@ -3,8 +3,9 @@ using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BulkyBookWeb.Controllers
+namespace BulkyBookWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnityOfWork _unityOfWork;
@@ -108,7 +109,7 @@ namespace BulkyBookWeb.Controllers
         public IActionResult DeletePOST(int? id)
         {
             var obj = _unityOfWork.Category.GetFirstOrDefault(x => x.Id == id);
-            
+
             if (obj == null)
             {
                 return NotFound();
