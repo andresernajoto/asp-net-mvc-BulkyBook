@@ -1,6 +1,7 @@
 ﻿using BulkyBook.DataAccess;
 using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
+using BulkyBook.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -27,36 +28,35 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         // GET
         public IActionResult Upsert(int? id)
         {
-            Product product = new Product();
-
-            // drop down for category
-            IEnumerable<SelectListItem> CategoryList = _unityOfWork.Category.GetAll().Select(
-                x => new SelectListItem
+            ProductVM productVM = new()
+            {
+                Product = new(),
+                CategoryList = _unityOfWork.Category.GetAll().Select(i => new SelectListItem
                 {
-                    Text = x.Name,
-                    Value = x.Id.ToString()
-                });
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                }),
 
-            // drop down for cover type
-            IEnumerable<SelectListItem> CoverTypelist = _unityOfWork.CoverType.GetAll().Select(
-                x => new SelectListItem
+                CoverTypeList = _unityOfWork.CoverType.GetAll().Select(i => new SelectListItem
                 {
-                    Text = x.Name,
-                    Value = x.Id.ToString()
-                });
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                })
+            };
 
             if (id == null || id == 0)
             {
                 // creates product
-                ViewBag.CategoryList = CategoryList;
-                return View(product);
+                //ViewBag.CategoryList = CategoryList;
+                //ViewData["CoverTypeList"] = CoverTypelist;
+                return View(productVM);
             }
             else
             {
                 // updates product
             }
 
-            return View(product);
+            return View(productVM);
         }
 
         // POST
