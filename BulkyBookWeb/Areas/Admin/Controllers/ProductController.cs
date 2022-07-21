@@ -11,11 +11,13 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         private readonly IUnityOfWork _unityOfWork;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
         // this do the implementation of database to controller
-        public ProductController(IUnityOfWork unityOfWork)
+        public ProductController(IUnityOfWork unityOfWork, IWebHostEnvironment hostEnvironment)
         {
             _unityOfWork = unityOfWork;
+            _hostEnvironment = hostEnvironment;
         }
 
         public IActionResult Index()
@@ -62,13 +64,31 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(ProductVM obj, IFormFile file)
+        public IActionResult Upsert(ProductVM obj, IFormFile? file)
         {
             if (ModelState.IsValid)
             {
-                // _unityOfWork.CoverType.Update(obj);
+
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                
+                if (file != null)
+                {
+                    // prevents duplicated name of files
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"images\products");
+                    var extension = Path.GetExtension(file.FileName);
+
+                    using (var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    {
+                        file.CopyTo(fileStreams);
+                    }
+
+                    obj.Product.ImageUrl = @"images\products\" + fileName + extension;
+                }
+
+                _unityOfWork.Product.Add(obj.Product);
                 _unityOfWork.Save();
-                TempData["success"] = "Cover Type updated successfully";
+                TempData["success"] = "Product created successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
