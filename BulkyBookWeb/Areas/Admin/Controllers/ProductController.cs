@@ -53,10 +53,10 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             }
             else
             {
+                productVM.Product = _unityOfWork.Product.GetFirstOrDefault(x => x.Id == id);
+                return View(productVM);
                 // updates product
-            }
-
-            return View(productVM);
+            }            
         }
 
         // POST
@@ -76,15 +76,33 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                     var uploads = Path.Combine(wwwRootPath, @"images\products");
                     var extension = Path.GetExtension(file.FileName);
 
+                    if (obj.Product.ImageUrl != null)
+                    {
+                        var oldImagePath = Path.Combine(wwwRootPath, obj.Product.ImageUrl.TrimStart('\\'));
+
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
                     using (var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {
                         file.CopyTo(fileStreams);
                     }
 
-                    obj.Product.ImageUrl = @"images\products\" + fileName + extension;
+                    obj.Product.ImageUrl = @"\images\products\" + fileName + extension;
                 }
 
-                _unityOfWork.Product.Add(obj.Product);
+                if (obj.Product.Id == 0)
+                {
+                    _unityOfWork.Product.Add(obj.Product);
+                }
+                else
+                {
+                    _unityOfWork.Product.Update(obj.Product);
+                }
+
                 _unityOfWork.Save();
                 TempData["success"] = "Product created successfully";
                 return RedirectToAction("Index");
