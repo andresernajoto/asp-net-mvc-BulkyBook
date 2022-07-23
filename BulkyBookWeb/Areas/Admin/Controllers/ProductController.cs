@@ -53,9 +53,9 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             }
             else
             {
+                // updates product
                 productVM.Product = _unityOfWork.Product.GetFirstOrDefault(x => x.Id == id);
                 return View(productVM);
-                // updates product
             }            
         }
 
@@ -110,48 +110,35 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             return View(obj);
         }
 
-        // GET
-        public IActionResult Delete(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            var coverTypeFromDbFirst = _unityOfWork.CoverType.GetFirstOrDefault(x => x.Id == id);
-
-            if (coverTypeFromDbFirst == null)
-            {
-                return NotFound();
-            }
-
-            return View(coverTypeFromDbFirst);
-        }
-
-        // POST
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public IActionResult DeletePOST(int? id)
-        {
-            var obj = _unityOfWork.CoverType.GetFirstOrDefault(x => x.Id == id);
-
-            if (obj == null)
-            {
-                return NotFound();
-            }
-
-            _unityOfWork.CoverType.Remove(obj);
-            _unityOfWork.Save();
-            TempData["success"] = "Cover Type deleted successfully";
-            return RedirectToAction("Index");
-        }
-
         #region API CALLS
         [HttpGet]
         public IActionResult GetAll()
         {
             var productList = _unityOfWork.Product.GetAll(includeProperties:"Category,CoverType");
             return Json(new { data = productList });
+        }
+
+        // POST
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+            var obj = _unityOfWork.Product.GetFirstOrDefault(x => x.Id == id);
+
+            if (obj == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+
+            var oldImagePath = Path.Combine(_hostEnvironment.WebRootPath, obj.ImageUrl.TrimStart('\\'));
+
+            if (System.IO.File.Exists(oldImagePath))
+            {
+                System.IO.File.Delete(oldImagePath);
+            }
+
+            _unityOfWork.Product.Remove(obj);
+            _unityOfWork.Save();
+            return Json(new { success = true, message = "Delete successful" });
         }
         #endregion
     }

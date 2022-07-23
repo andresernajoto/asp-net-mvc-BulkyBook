@@ -84,7 +84,7 @@
                         <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
                     }
 
-                    <a asp-controller="CoverType" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-secondary" style="width:150px">
                         Back to list
                     </a>
                 </div>
@@ -92,7 +92,7 @@
         </div>
         <div class="col-2 pt-4">
             <img src="@Model.Product.ImageUrl"
-            width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+                 width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
         </div>
     </div>
 </form>
@@ -102,6 +102,12 @@
         <partial name="_ValidationScriptsPartial" />
     }
     <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            toolbar_mode: 'floating',
+        });
+
         function ValidateInput() {
             if (document.getElementById("uploadBox").value == "") {
                 Swal.fire({
