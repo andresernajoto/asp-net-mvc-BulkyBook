@@ -295,6 +295,7 @@ D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
@@ -325,6 +326,7 @@ D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.Identity.Client.dll
@@ -559,5 +561,3 @@ D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\BulkyBookWeb.pdb
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\BulkyBookWeb.genruntimeconfig.cache
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\ref\BulkyBookWeb.dll
-D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
-D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
