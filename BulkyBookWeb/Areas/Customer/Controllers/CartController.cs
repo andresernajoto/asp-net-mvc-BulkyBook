@@ -40,6 +40,42 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             return View(ShoppingCartVM);
         }
 
+        public IActionResult Plus(int cartId)
+        {
+            var cart = _unityOfWork.ShoppingCart.GetFirstOrDefault(x => x.Id == cartId);
+            _unityOfWork.ShoppingCart.IncrementCount(cart, 1);
+            _unityOfWork.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Minus(int cartId)
+        {
+            var cart = _unityOfWork.ShoppingCart.GetFirstOrDefault(x => x.Id == cartId);
+
+            if (cart.Count <= 1)
+            {
+                _unityOfWork.ShoppingCart.Remove(cart);
+            }
+            else
+            {
+                _unityOfWork.ShoppingCart.DecrementCount(cart, 1);
+            }
+
+            _unityOfWork.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Remove(int cartId)
+        {
+            var cart = _unityOfWork.ShoppingCart.GetFirstOrDefault(x => x.Id == cartId);
+            _unityOfWork.ShoppingCart.Remove(cart);
+            _unityOfWork.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         private double GetPriceBasedOnQuantity(double quantity, double price, double price50, double price100)
         {
             if (quantity <= 50)
