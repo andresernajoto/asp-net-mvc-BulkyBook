@@ -182,11 +182,6 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             {
                 return RedirectToAction("OrderConfirmation", "Cart", new { id = ShoppingCartVM.OrderHeader.Id });
             }
-
-            //_unityOfWork.ShoppingCart.RemoveRange(ShoppingCartVM.ListCart);
-            //_unityOfWork.Save();
-
-            //return RedirectToAction("Index", "HomeController");
         }
 
         public IActionResult OrderConfirmation(int id)

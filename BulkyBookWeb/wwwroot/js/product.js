@@ -15,6 +15,7 @@ function loadDataTable() {
             { "data": "price", "width": "15%" },
             { "data": "author", "width": "15%" },
             { "data": "category.name", "width": "15%" },
+
             {
                 "data": "id",
                 "render": function (data) {
@@ -59,8 +60,8 @@ function Delete(url) {
                 type: 'DELETE',
                 success: function (data) {
                     if (data.success) {
-                        toastr.success(data.message);
                         dataTable.ajax.reload();
+                        toastr.success(data.message);
                     }
                     else {
                         toastr.error(data.message);

@@ -355,6 +355,7 @@ D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\NuGet.ProjectModel.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\NuGet.Protocol.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\NuGet.Versioning.dll
+D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Stripe.net.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\System.Composition.AttributedModel.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\System.Composition.Convention.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\System.Composition.Hosting.dll
@@ -561,4 +562,3 @@ D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\BulkyBookWeb.pdb
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\BulkyBookWeb.genruntimeconfig.cache
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\ref\BulkyBookWeb.dll
-D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Stripe.net.dll
