@@ -2,6 +2,7 @@
 @using BulkyBook.Utility
 
 <form method="post">
+	<input asp-for="OrderHeader.Id" hidden />
 	<br />
 	<div class="container">
 		<div class="card">
@@ -212,7 +213,7 @@
 								</div>
 							</div>
 							
-							<input type="submit" class="btn btn-warning form-control my-1" value="Update Order Details" />
+							<input type="submit" asp-action="UpdateOrderDetails" class="btn btn-warning form-control my-1" value="Update Order Details" />
 						</div>
 						
 						<div class="col-12 col-lg-5 offset-lg-1">
