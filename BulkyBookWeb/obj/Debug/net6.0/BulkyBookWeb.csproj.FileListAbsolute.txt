@@ -562,3 +562,6 @@ D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\BulkyBookWeb.pdb
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\BulkyBookWeb.genruntimeconfig.cache
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj\Debug\net6.0\ref\BulkyBookWeb.dll
+D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\MailKit.dll
+D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\MimeKit.dll
+D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\BouncyCastle.Crypto.dll

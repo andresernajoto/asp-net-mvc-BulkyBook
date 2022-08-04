@@ -3,6 +3,7 @@ using BulkyBook.Models;
 using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Stripe.Checkout;
 using System.Security.Claims;
@@ -14,12 +15,14 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
     public class CartController : Controller
     {
         private readonly IUnityOfWork _unityOfWork;
+        private readonly IEmailSender _emailSender;
         [BindProperty]
         public ShoppingCartVM ShoppingCartVM { get; set; }
         public int OrderTotal { get; set; }
-        public CartController(IUnityOfWork unityOfWork)
+        public CartController(IUnityOfWork unityOfWork, IEmailSender emailSender)
         {
             _unityOfWork = unityOfWork;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -186,7 +189,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
         public IActionResult OrderConfirmation(int id)
         {
-            OrderHeader orderHeader = _unityOfWork.OrderHeader.GetFirstOrDefault(x => x.Id == id);
+            OrderHeader orderHeader = _unityOfWork.OrderHeader.GetFirstOrDefault(x => x.Id == id,
+                includeProperties: "ApplicationUser");
 
             if (orderHeader.PaymentStatus != SD.PaymentStatusDelayedPayment)
             {
@@ -200,6 +204,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
                     _unityOfWork.Save();
                 }
             }
+
+            _emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "New Order - Bulky Book", "<p>New order created</p>");
 
             List<ShoppingCart> shoppingCarts = _unityOfWork.ShoppingCart.GetAll(x => x.ApplicationUserId ==
             orderHeader.ApplicationUserId).ToList();
