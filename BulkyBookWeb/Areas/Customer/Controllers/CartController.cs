@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Stripe.Checkout;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace BulkyBookWeb.Areas.Customer.Controllers
 {
@@ -232,6 +233,9 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             if (cart.Count <= 1)
             {
                 _unityOfWork.ShoppingCart.Remove(cart);
+                var count = _unityOfWork.ShoppingCart.GetAll(x => x.ApplicationUserId == cart.ApplicationUserId)
+                .ToList().Count - 1;
+                HttpContext.Session.SetInt32(SD.SessionCart, count);
             }
             else
             {
@@ -248,6 +252,10 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             var cart = _unityOfWork.ShoppingCart.GetFirstOrDefault(x => x.Id == cartId);
             _unityOfWork.ShoppingCart.Remove(cart);
             _unityOfWork.Save();
+
+            var count = _unityOfWork.ShoppingCart.GetAll(x => x.ApplicationUserId == cart.ApplicationUserId)
+                .ToList().Count;
+            HttpContext.Session.SetInt32(SD.SessionCart, count);
 
             return RedirectToAction(nameof(Index));
         }
