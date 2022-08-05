@@ -565,3 +565,4 @@ D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\obj
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\MailKit.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\MimeKit.dll
 D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\.Downloads\Andre\Estudos\Programming\C#\AspNetCore\BulkyBook\BulkyBookWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll

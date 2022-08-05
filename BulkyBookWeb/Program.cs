@@ -19,10 +19,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultUI();
 builder.Services.AddScoped<IUnityOfWork, UnityOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+builder.Services.AddAuthentication().AddFacebook(options =>
+{
+    options.AppId = "610367057426999";
+    options.AppSecret = "f60deb646125939afc1971dcb476cf9d";
+});
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
