@@ -7,6 +7,13 @@ Por exemplo:
 - Um administrador poderia publicar novos produtos e os usuários de individuais (padrão) e de empresa poderiam somente adicionar os produtos ao seu carrinho e efetuar o pagamento do pedido
 - Enquanto o administrador poderia ter todo o controle, aprovamento e entrega dos pedidos, além de outras funcionalidades.
 
+## Visualização do projeto
+
+Segue o link para visualização do projeto:
+<em>https://bulkybo0k.azurewebsites.net/<em>
+
+Caso encontre algum bug ou problema no sistema, pode me notificar aqui no github que estudarei formas para correção!
+
 ## Recursos utilizados
 Para desenvolvimento deste projeto, foram utilizados os seguintes recursos da linguagem C# e ASP.NET Framework:
 
