@@ -51,7 +51,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 includeProperties: "Product");
 
             // stripe settings
-            var domain = "https://localhost:44326/";
+            var domain = "https://bulkybo0k.azurewebsites.net/";
             var options = new SessionCreateOptions
             {
                 PaymentMethodTypes = new List<string>
