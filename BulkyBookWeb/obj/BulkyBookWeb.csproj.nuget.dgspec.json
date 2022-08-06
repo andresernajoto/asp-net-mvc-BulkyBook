@@ -35,6 +35,9 @@
             "projectReferences": {
               "D:\\.Downloads\\Andre\\Estudos\\Programming\\C#\\AspNetCore\\BulkyBook\\BulkyBook.Models\\BulkyBook.Models.csproj": {
                 "projectPath": "D:\\.Downloads\\Andre\\Estudos\\Programming\\C#\\AspNetCore\\BulkyBook\\BulkyBook.Models\\BulkyBook.Models.csproj"
+              },
+              "D:\\.Downloads\\Andre\\Estudos\\Programming\\C#\\AspNetCore\\BulkyBook\\BulkyBook.Utility\\BulkyBook.Utility.csproj": {
+                "projectPath": "D:\\.Downloads\\Andre\\Estudos\\Programming\\C#\\AspNetCore\\BulkyBook\\BulkyBook.Utility\\BulkyBook.Utility.csproj"
               }
             }
           }
